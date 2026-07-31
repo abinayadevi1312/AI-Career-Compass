@@ -19,3 +19,8 @@
 .env.production.local
 
 npm-debug.log*
+<<<<<<< HEAD
+=======
+yarn-debug.log*
+yarn-error.log*
+>>>>>>> 771052cf0d219e764ae3d9dedc98b44cf8188f90
