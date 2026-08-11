@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .app-shell {
   min-height: 100vh;
   padding: 32px;
@@ -112,7 +111,9 @@ button {
   .hero-card,
   .content-grid {
     grid-template-columns: 1fr;
-=======
+  }
+}
+
 .App {
   text-align: center;
 }
@@ -149,6 +150,6 @@ button {
   }
   to {
     transform: rotate(360deg);
->>>>>>> 771052cf0d219e764ae3d9dedc98b44cf8188f90
+
   }
 }

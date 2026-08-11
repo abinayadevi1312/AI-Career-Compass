@@ -5,14 +5,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-<<<<<<< HEAD
+
   background: #07111f;
 }
 
 * {
   box-sizing: border-box;
-=======
->>>>>>> 771052cf0d219e764ae3d9dedc98b44cf8188f90
+
 }
 
 code {
