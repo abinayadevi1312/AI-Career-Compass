@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
-function Login() {
+function Login(){
   const navigate = useNavigate();
 
   const [login, setLogin] = useState({
@@ -21,17 +20,21 @@ function Login() {
 
     const savedUser = JSON.parse(localStorage.getItem("user"));
 
+    // No registered user
     if (!savedUser) {
       alert("No account found. Please register first.");
       navigate("/register");
       return;
     }
 
+    // Check email and password
     if (
       login.email === savedUser.email &&
       login.password === savedUser.password
     ) {
       alert("Login Successful!");
+
+      // Go to Home page
       navigate("/home");
     } else {
       alert("Invalid Email or Password");
@@ -39,166 +42,120 @@ function Login() {
   };
 
   return (
-    <>
-      <style>{`
-        * {
-          box-sizing: border-box;
-        }
+    <div style={styles.page}>
+      <div style={styles.card}>
+        <h1>Welcome Back</h1>
 
-        body {
-          margin: 0;
-          font-family: Arial, sans-serif;
-          background: linear-gradient(
-            135deg,
-            #111827,
-            #1f2937,
-            #374151
-          );
-          min-height: 100vh;
-        }
+        <p style={styles.subtitle}>
+          Sign in to continue your career journey
+        </p>
 
-        .login-page {
-          min-height: 100vh;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          padding: 20px;
-        }
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            value={login.email}
+            onChange={handleChange}
+            required
+            style={styles.input}
+          />
 
-        .login-card {
-          width: 380px;
-          padding: 35px;
-          border-radius: 25px;
-          background: rgba(255, 255, 255, 0.15);
-          backdrop-filter: blur(15px);
-          border: 1px solid rgba(255, 255, 255, 0.2);
-          box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
-        }
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={login.password}
+            onChange={handleChange}
+            required
+            style={styles.input}
+          />
 
-        .login-card h1 {
-          text-align: center;
-          color: white;
-          margin-bottom: 10px;
-          font-size: 34px;
-        }
-
-        .subtitle {
-          text-align: center;
-          color: #ddd;
-          margin-bottom: 30px;
-          font-size: 14px;
-        }
-
-        .input-box {
-          margin-bottom: 18px;
-        }
-
-        .input-box input {
-          width: 100%;
-          padding: 14px;
-          border: none;
-          outline: none;
-          border-radius: 12px;
-          background: white;
-          font-size: 15px;
-        }
-
-        .signin-btn {
-          width: 100%;
-          padding: 14px;
-          border: none;
-          border-radius: 12px;
-          background: #ff8800;
-          color: white;
-          font-size: 17px;
-          font-weight: bold;
-          cursor: pointer;
-        }
-
-        .signin-btn:hover {
-          background: #e67600;
-        }
-
-        .register-text {
-          color: white;
-          text-align: center;
-          margin-top: 20px;
-          margin-bottom: 10px;
-        }
-
-        .register-btn {
-          width: 100%;
-          padding: 12px;
-          border: none;
-          border-radius: 12px;
-          background: #d9d9d9;
-          color: black;
-          font-size: 16px;
-          cursor: pointer;
-        }
-
-        .register-btn:hover {
-          background: white;
-        }
-      `}</style>
-
-      <div className="login-page">
-        <div className="login-card">
-
-          <h1>Welcome Back</h1>
-
-          <p className="subtitle">
-            Sign in to continue to AI Career Compass
-          </p>
-
-          <form onSubmit={handleSubmit}>
-
-            <div className="input-box">
-              <input
-                type="email"
-                name="email"
-                placeholder="Email Address"
-                value={login.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <div className="input-box">
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                value={login.password}
-                onChange={handleChange}
-                required
-              />
-            </div>
-
-            <button
-              className="signin-btn"
-              type="submit"
-            >
-              Login
-            </button>
-
-          </form>
-
-          <p className="register-text">
-            Don't have an account?
-          </p>
-
-          <button
-            className="register-btn"
-            onClick={() => navigate("/register")}
-          >
-            Register
+          <button type="submit" style={styles.loginButton}>
+            Login
           </button>
+        </form>
 
-        </div>
+        <p style={styles.registerText}>
+          Don't have an account?
+        </p>
+
+        <button
+          type="button"
+          onClick={() => navigate("/register")}
+          style={styles.registerButton}
+        >
+          Register
+        </button>
       </div>
-    </>
+    </div>
   );
 }
+
+const styles = {
+  page: {
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    background: "linear-gradient(135deg, #111827, #1f2937, #374151)",
+    fontFamily: "Arial, sans-serif",
+  },
+
+  card: {
+    width: "380px",
+    padding: "35px",
+    borderRadius: "20px",
+    background: "rgba(255,255,255,0.12)",
+    backdropFilter: "blur(15px)",
+    boxShadow: "0 10px 30px rgba(0,0,0,0.4)",
+    textAlign: "center",
+  },
+
+  subtitle: {
+    color: "#ddd",
+    marginBottom: "25px",
+  },
+
+  input: {
+    width: "100%",
+    padding: "14px",
+    marginBottom: "15px",
+    border: "none",
+    borderRadius: "10px",
+    boxSizing: "border-box",
+    fontSize: "15px",
+    outline: "none",
+  },
+
+  loginButton: {
+    width: "100%",
+    padding: "14px",
+    border: "none",
+    borderRadius: "10px",
+    background: "#ff9800",
+    color: "white",
+    fontSize: "16px",
+    fontWeight: "bold",
+    cursor: "pointer",
+  },
+
+  registerText: {
+    color: "white",
+    marginTop: "20px",
+  },
+
+  registerButton: {
+    width: "100%",
+    padding: "12px",
+    border: "none",
+    borderRadius: "10px",
+    background: "white",
+    color: "black",
+    fontSize: "15px",
+    fontWeight: "bold",
+    cursor: "pointer",
+  },
+};
 
 export default Login;
