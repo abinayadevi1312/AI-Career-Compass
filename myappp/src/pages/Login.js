@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-function Login(){
+
+function Login() {
   const navigate = useNavigate();
 
   const [login, setLogin] = useState({
@@ -33,6 +34,9 @@ function Login(){
       login.password === savedUser.password
     ) {
       alert("Login Successful!");
+
+      // Save login status
+      localStorage.setItem("isLoggedIn", "true");
 
       // Go to Home page
       navigate("/home");
