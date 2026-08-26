@@ -1,28 +1,82 @@
 import React from "react";
-import { BrowserRouter, Routes, Route, Navigate }from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Navigate,
+} from "react-router-dom";
+
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-function App()
- {
+import DomainDetails from "./pages/DomainDetails";
+
+function App() {
   return (
     <BrowserRouter>
       <Routes>
 
-        {/* Register Page */}
-        <Route path="/register" element={<Register />} />
+        {/* =========================
+            REGISTER PAGE
+        ========================= */}
+        <Route
+          path="/register"
+          element={<Register />}
+        />
 
-        {/* Login Page */}
-        <Route path="/login" element={<Login />} />
+        {/* =========================
+            LOGIN PAGE
+        ========================= */}
+        <Route
+          path="/login"
+          element={<Login />}
+        />
 
-        {/* Home Page */}
-        <Route path="/home" element={<Home />} />
+        {/* =========================
+            HOME PAGE
+        ========================= */}
+        <Route
+          path="/home"
+          element={<Home />}
+        />
 
-        {/* Default Page */}
-        <Route path="/" element={<Navigate to="/login" />} />
+        {/* =========================
+            DOMAIN DETAILS PAGE
+            Example:
+            /domain/web-development
+            /domain/cybersecurity
+            /domain/data-science
+        ========================= */}
+        <Route
+          path="/domain/:domain"
+          element={<DomainDetails />}
+        />
 
-        {/* Invalid URL */}
-        <Route path="*" element={<Navigate to="/login" />} />
+        {/* =========================
+            DEFAULT PAGE
+        ========================= */}
+        <Route
+          path="/"
+          element={
+            <Navigate
+              to="/login"
+              replace
+            />
+          }
+        />
+
+        {/* =========================
+            INVALID URL
+        ========================= */}
+        <Route
+          path="*"
+          element={
+            <Navigate
+              to="/login"
+              replace
+            />
+          }
+        />
 
       </Routes>
     </BrowserRouter>
