@@ -15,45 +15,33 @@ function Login() {
       [e.target.name]: e.target.value,
     });
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-
     const savedUser = JSON.parse(localStorage.getItem("user"));
-
-    // No registered user
     if (!savedUser) {
       alert("No account found. Please register first.");
       navigate("/register");
       return;
     }
-
-    // Check email and password
     if (
       login.email === savedUser.email &&
       login.password === savedUser.password
     ) {
       alert("Login Successful!");
-
-      // Save login status
       localStorage.setItem("isLoggedIn", "true");
 
-      // Go to Home page
       navigate("/home");
     } else {
       alert("Invalid Email or Password");
     }
   };
-
   return (
     <div style={styles.page}>
       <div style={styles.card}>
         <h1>Welcome Back</h1>
-
         <p style={styles.subtitle}>
           Sign in to continue your career journey
         </p>
-
         <form onSubmit={handleSubmit}>
           <input
             type="email"
@@ -64,7 +52,6 @@ function Login() {
             required
             style={styles.input}
           />
-
           <input
             type="password"
             name="password"
@@ -74,16 +61,13 @@ function Login() {
             required
             style={styles.input}
           />
-
           <button type="submit" style={styles.loginButton}>
             Login
           </button>
         </form>
-
         <p style={styles.registerText}>
           Don't have an account?
         </p>
-
         <button
           type="button"
           onClick={() => navigate("/register")}
@@ -96,8 +80,7 @@ function Login() {
   );
 }
 
-const styles = {
-  page: {
+const styles = {page: {
     minHeight: "100vh",
     display: "flex",
     justifyContent: "center",

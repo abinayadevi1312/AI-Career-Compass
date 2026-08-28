@@ -176,9 +176,8 @@ function Home() {
   const [selectedField, setSelectedField] = useState(null);
 
   // =====================================
-  // FIELD CLICK
+  // FIELD CARD → SHOW 10 DOMAINS
   // =====================================
-
   const handleFieldClick = (field) => {
     setSelectedField(field);
 
@@ -195,11 +194,18 @@ function Home() {
   };
 
   // =====================================
-  // DOMAIN CLICK
+  // DOMAIN CLICK → DOMAIN DETAILS
   // =====================================
-
   const handleDomainClick = (domainId) => {
     navigate(`/domain/${domainId}`);
+  };
+
+  // =====================================
+  // HOW IT WORKS
+  // SELECT FIELD CARD
+  // =====================================
+  const handleSelectFieldStep = () => {
+    navigate("/select-field");
   };
 
   return (
@@ -294,6 +300,7 @@ function Home() {
 
       {/* =====================================
           CAREER FIELDS
+          KEEPING VIEW DOMAINS
       ===================================== */}
 
       <section
@@ -303,7 +310,9 @@ function Home() {
 
         <div className="section-heading">
 
-          <p>EXPLORE YOUR OPTIONS</p>
+          <p>
+            EXPLORE YOUR OPTIONS
+          </p>
 
           <h2>
             Choose Your <span>Career Field</span>
@@ -316,6 +325,8 @@ function Home() {
 
         </div>
 
+
+        {/* FIELD CARDS */}
 
         <div className="fields-container">
 
@@ -364,7 +375,7 @@ function Home() {
 
 
       {/* =====================================
-          SELECTED FIELD DOMAINS
+          SELECTED FIELD → 10 DOMAINS
       ===================================== */}
 
       {selectedField && (
@@ -396,9 +407,7 @@ function Home() {
           </div>
 
 
-          {/* =====================================
-              DOMAIN CARDS
-          ===================================== */}
+          {/* 10 DOMAIN CARDS */}
 
           <div className="domains-grid">
 
@@ -443,9 +452,7 @@ function Home() {
           </div>
 
 
-          {/* =====================================
-              ASSESSMENT BOX
-          ===================================== */}
+          {/* ASSESSMENT BOX */}
 
           <div className="assessment-box">
 
@@ -495,9 +502,21 @@ function Home() {
 
         <div className="steps-container">
 
-          <div className="step">
 
-            <div>01</div>
+          {/* =====================================
+              STEP 01 - SELECT FIELD
+              CLICK → /select-field
+          ===================================== */}
+
+          <div
+            className="step"
+            onClick={handleSelectFieldStep}
+            style={{ cursor: "pointer" }}
+          >
+
+            <div>
+              01
+            </div>
 
             <h3>
               Select a Field
@@ -510,9 +529,13 @@ function Home() {
           </div>
 
 
+          {/* STEP 02 */}
+
           <div className="step">
 
-            <div>02</div>
+            <div>
+              02
+            </div>
 
             <h3>
               Choose a Domain
@@ -526,9 +549,13 @@ function Home() {
           </div>
 
 
+          {/* STEP 03 */}
+
           <div className="step">
 
-            <div>03</div>
+            <div>
+              03
+            </div>
 
             <h3>
               Take Assessment
@@ -541,9 +568,13 @@ function Home() {
           </div>
 
 
+          {/* STEP 04 */}
+
           <div className="step">
 
-            <div>04</div>
+            <div>
+              04
+            </div>
 
             <h3>
               Get Recommendation

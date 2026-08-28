@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
   BrowserRouter,
   Routes,
@@ -10,51 +11,70 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
 import DomainDetails from "./pages/DomainDetails";
+import SelectFields from "./pages/SelectFields";
 
 function App() {
   return (
     <BrowserRouter>
+
       <Routes>
 
-        {/* =========================
-            REGISTER PAGE
-        ========================= */}
+        {/* =====================================
+            REGISTER
+        ===================================== */}
+
         <Route
           path="/register"
           element={<Register />}
         />
 
-        {/* =========================
-            LOGIN PAGE
-        ========================= */}
+
+        {/* =====================================
+            LOGIN
+        ===================================== */}
+
         <Route
           path="/login"
           element={<Login />}
         />
 
-        {/* =========================
-            HOME PAGE
-        ========================= */}
+
+        {/* =====================================
+            HOME
+        ===================================== */}
+
         <Route
           path="/home"
           element={<Home />}
         />
 
-        {/* =========================
-            DOMAIN DETAILS PAGE
+
+        {/* =====================================
+            SELECT FIELD
+        ===================================== */}
+
+        <Route
+          path="/select-field"
+          element={<SelectFields />}
+        />
+
+
+        {/* =====================================
+            DOMAIN DETAILS
             Example:
             /domain/web-development
-            /domain/cybersecurity
-            /domain/data-science
-        ========================= */}
+        ===================================== */}
+
         <Route
           path="/domain/:domain"
           element={<DomainDetails />}
         />
 
-        {/* =========================
-            DEFAULT PAGE
-        ========================= */}
+
+        {/* =====================================
+            DEFAULT
+        ===================================== */}
+
         <Route
           path="/"
           element={
@@ -65,9 +85,11 @@ function App() {
           }
         />
 
-        {/* =========================
+
+        {/* =====================================
             INVALID URL
-        ========================= */}
+        ===================================== */}
+
         <Route
           path="*"
           element={
@@ -79,6 +101,7 @@ function App() {
         />
 
       </Routes>
+
     </BrowserRouter>
   );
 }
