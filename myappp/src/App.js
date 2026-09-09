@@ -1,5 +1,4 @@
 import React from "react";
-
 import {
   BrowserRouter,
   Routes,
@@ -10,101 +9,82 @@ import {
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Home from "./pages/Home";
-import DomainDetails from "./pages/DomainDetails";
 import SelectFields from "./pages/SelectFields";
+
+import Assessment from "./pages/assesment";
+import ScenarioAssessment from "./pages/ScenarioAssessment.js";
+
+import Career from "./pages/career";
+import DomainDetails from "./pages/DomainDetails";
 
 function App() {
   return (
     <BrowserRouter>
-
       <Routes>
 
-        {/* =====================================
-            REGISTER
-        ===================================== */}
-
-        <Route
-          path="/register"
-          element={<Register />}
-        />
-
-
-        {/* =====================================
-            LOGIN
-        ===================================== */}
-
+        {/* Login */}
         <Route
           path="/login"
           element={<Login />}
         />
 
+        {/* Register */}
+        <Route
+          path="/register"
+          element={<Register />}
+        />
 
-        {/* =====================================
-            HOME
-        ===================================== */}
-
+        {/* Home */}
         <Route
           path="/home"
           element={<Home />}
         />
 
-
-        {/* =====================================
-            SELECT FIELD
-        ===================================== */}
-
+        {/* Select Field */}
         <Route
           path="/select-field"
           element={<SelectFields />}
         />
 
+        {/* Normal Assessment */}
+        <Route
+          path="/assessment"
+          element={<Assessment />}
+        />
 
-        {/* =====================================
-            DOMAIN DETAILS
-            Example:
-            /domain/web-development
-        ===================================== */}
+        {/* Scenario Assessment */}
+        <Route
+          path="/scenario-assessment"
+          element={<ScenarioAssessment />}
+        />
 
+        {/* Career */}
+        <Route
+          path="/career"
+          element={<Career />}
+        />
+
+        {/* Domain Details */}
         <Route
           path="/domain/:domain"
           element={<DomainDetails />}
         />
 
-
-        {/* =====================================
-            DEFAULT
-        ===================================== */}
-
+        {/* Default */}
         <Route
           path="/"
-          element={
-            <Navigate
-              to="/login"
-              replace
-            />
-          }
+          element={<Navigate to="/login" />}
         />
 
-
-        {/* =====================================
-            INVALID URL
-        ===================================== */}
-
+        {/* Invalid URL */}
         <Route
           path="*"
-          element={
-            <Navigate
-              to="/login"
-              replace
-            />
-          }
+          element={<Navigate to="/login" />}
         />
 
       </Routes>
-
     </BrowserRouter>
   );
 }
 
 export default App;
-

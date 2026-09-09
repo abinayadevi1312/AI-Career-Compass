@@ -1,155 +1,678 @@
-.app-shell {
-  min-height: 100vh;
-  padding: 32px;
-  background: linear-gradient(135deg, #07111f 0%, #172a43 100%);
-  color: #f8fbff;
+* {
+  box-sizing: border-box;
 }
 
-.hero-card {
-  display: grid;
-  grid-template-columns: 1.8fr 1fr;
-  gap: 24px;
-  background: rgba(10, 19, 33, 0.85);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 24px;
-  padding: 32px;
-  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.25);
-}
-
-.eyebrow {
-  margin: 0 0 8px;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  font-size: 0.8rem;
-  color: #7dd3fc;
-}
-
-.hero-copy h1 {
-  margin: 0 0 12px;
-  font-size: clamp(2rem, 4vw, 3rem);
-  line-height: 1.1;
-}
-
-.hero-text {
-  font-size: 1.05rem;
-  line-height: 1.7;
-  color: #dbe7f7;
-  max-width: 640px;
-}
-
-.hero-actions {
-  display: flex;
-  gap: 12px;
-  margin-top: 24px;
-  flex-wrap: wrap;
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #101828;
+  background: white;
 }
 
 button {
-  border: none;
-  border-radius: 999px;
-  padding: 12px 18px;
-  font-weight: 600;
+  font-family: inherit;
   cursor: pointer;
-  background: #38bdf8;
-  color: #05233b;
 }
 
-.secondary-btn {
-  background: transparent;
-  border: 1px solid #7dd3fc;
-  color: #7dd3fc;
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  height: 85px;
+  border-bottom: 1px solid #e5e7eb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 7%;
+  background: white;
 }
 
-.hero-panel {
-  background: linear-gradient(145deg, #10314f, #1f4c6f);
-  border-radius: 20px;
-  padding: 24px;
+.brand {
+  font-size: 28px;
+  font-weight: 700;
+  color: #101828;
 }
 
-.hero-panel h2 {
-  margin-top: 0;
-  margin-bottom: 8px;
+.brand span {
+  color: #2563eb;
 }
 
-.hero-panel ul,
-.roadmap-card ol {
-  padding-left: 20px;
-  line-height: 1.8;
+.nav-links {
+  display: flex;
+  gap: 45px;
+  color: #344054;
+  font-size: 16px;
 }
 
-.content-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 24px;
-  margin-top: 24px;
+.nav-links span {
+  cursor: pointer;
 }
 
-.section-card {
-  background: rgba(255, 255, 255, 0.06);
-  border-radius: 20px;
-  padding: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+.nav-links span:hover {
+  color: #2563eb;
 }
 
-.card-grid {
-  display: grid;
-  gap: 16px;
-  margin-top: 16px;
-}
 
-.info-card {
-  background: rgba(10, 19, 33, 0.6);
-  border-radius: 16px;
-  padding: 16px;
-}
+/* =========================
+   JOURNEY
+========================= */
 
-.info-card h3 {
-  margin: 0 0 8px;
-}
-
-@media (max-width: 850px) {
-  .hero-card,
-  .content-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-.App {
+.journey-section {
   text-align: center;
+  padding: 40px 7% 55px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.section-label {
+  color: #2563eb;
+  letter-spacing: 3px;
+  font-weight: 700;
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.journey-section h1 {
+  font-size: 38px;
+  margin: 0 0 55px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.journey-section h1 span {
+  color: #2563eb;
+}
+
+.journey-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.journey-card {
+  min-height: 220px;
+  border: 1px solid #dfe7f1;
+  border-radius: 17px;
+  padding: 30px 25px;
+  background: white;
+}
+
+.number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #2563eb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.journey-card h2 {
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.journey-card p {
+  color: #58708f;
+  line-height: 1.6;
+}
+
+.journey-card button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+
+/* =========================
+   FIELDS
+========================= */
+
+.fields-section {
+  text-align: center;
+  padding: 40px 7% 70px;
+}
+
+.fields-section h1 {
+  font-size: 36px;
+  margin: 10px 0;
+}
+
+.section-description {
+  color: #58708f;
+  margin-bottom: 45px;
+}
+
+.field-grid {
+  max-width: 1350px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 22px;
+}
+
+.field-card {
+  border: 1px solid #dfe7f1;
+  border-radius: 16px;
+  padding: 35px 20px;
+  min-height: 320px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
+  background: white;
+}
+
+.field-card:hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transform: translateY(-3px);
+}
+
+.field-icon {
+  font-size: 52px;
+}
+
+.field-card h2 {
+  font-size: 19px;
+  margin: 10px 0;
+}
+
+.field-card p {
+  color: #60748d;
+  line-height: 1.55;
+  min-height: 90px;
+}
+
+.field-card button {
+  background: #101828;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  background: #0f172a;
+  color: white;
+  text-align: center;
+  padding: 45px 20px;
+}
+
+footer h2 {
+  margin: 0 0 10px;
+}
+
+footer p {
+  color: #d0d5dd;
+}
+
+.copyright {
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+
+/* =========================
+   POPUP
+========================= */
+
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  display: flex;
+  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  z-index: 1000;
+}
+
+.popup-box {
+  width: 430px;
+  background: white;
+  border-radius: 18px;
+  padding: 35px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+}
+
+.popup-box h2 {
+  margin-top: 0;
+  font-size: 25px;
+}
+
+.popup-box p {
+  color: #667085;
+}
+
+.popup-option {
+  width: 100%;
+  padding: 15px;
+  margin-top: 12px;
+  background: #f8fafc;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  text-align: left;
+  color: #101828;
+}
+
+.popup-option:hover {
+  border-color: #2563eb;
+  background: #eff6ff;
+}
+
+.popup-box input {
+  width: 100%;
+  padding: 14px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  margin: 15px 0;
+  font-size: 15px;
+}
+
+.popup-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.cancel-button,
+.continue-button {
+  flex: 1;
+  padding: 13px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.cancel-button {
+  background: white;
+  border: 1px solid #98a2b3;
+}
+
+.continue-button {
+  background: #2563eb;
+  color: white;
+  border: none;
+}
+
+.error-text {
+  color: #dc2626 !important;
+  font-size: 14px;
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+.login-page {
+  min-height: 100vh;
+  background: #f4f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-card {
+  width: 430px;
+  background: white;
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.logo-circle {
+  font-size: 45px;
+}
+
+.login-card h1 {
+  font-size: 26px;
+}
+
+.login-card h1 span {
+  color: #2563eb;
+}
+
+.login-subtitle {
+  color: #667085;
+}
+
+.login-card h2 {
+  margin-top: 35px;
+}
+
+.small-text {
+  color: #667085;
+}
+
+.login-card form {
+  margin-top: 25px;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 15px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+}
+
+.login-card form button {
+  width: 100%;
+  padding: 14px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.register-text {
+  color: #667085;
+  margin-top: 25px;
+}
+
+.register-text span {
+  color: #2563eb;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
+/* =========================
+   SELECT FIELD
+========================= */
+
+.select-field-page {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.simple-navbar {
+  height: 80px;
+  background: white;
+  border-bottom: 1px solid #e5e7eb;
+  padding: 0 7%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.simple-navbar button {
+  border: 1px solid #d0d5dd;
+  background: white;
+  padding: 10px 18px;
+  border-radius: 8px;
+}
+
+.select-field-content {
+  text-align: center;
+  padding: 60px 7%;
+}
+
+
+/* =========================
+   ASSESSMENT
+========================= */
+
+.assessment-page,
+.scenario-page,
+.career-page,
+.domain-page {
+  min-height: 100vh;
+  background: #f8fafc;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+}
+
+.assessment-card,
+.scenario-card,
+.career-card,
+.domain-card {
+  width: 700px;
+  background: white;
+  border-radius: 18px;
+  padding: 45px;
+  text-align: center;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.07);
+}
+
+.assessment-icon,
+.scenario-icon,
+.trophy {
+  font-size: 55px;
+}
+
+.assessment-card h1,
+.scenario-card h1,
+.career-card h1,
+.domain-card h1 {
+  font-size: 30px;
+}
+
+.assessment-card p,
+.scenario-card p,
+.domain-card p {
+  color: #667085;
+  line-height: 1.6;
+}
+
+.assessment-info,
+.field-display {
+  background: #eff6ff;
+  padding: 18px;
+  border-radius: 10px;
+  margin: 25px 0;
+  color: #2563eb;
+}
+
+.assessment-info {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.assessment-card button,
+.career-card button,
+.domain-card button {
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 25px;
+  font-weight: 600;
+}
+
+
+/* =========================
+   SCENARIO
+========================= */
+
+.progress {
+  text-align: right;
+  color: #2563eb;
+  font-weight: 600;
+}
+
+.question-card {
+  text-align: left;
+  border: 1px solid #dfe7f1;
+  border-radius: 12px;
+  padding: 25px;
+  margin-top: 15px;
+}
+
+.question-card h2 {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.option {
+  display: block;
+  padding: 14px;
+  border: 1px solid #e4e7ec;
+  border-radius: 8px;
+  margin-top: 10px;
+  cursor: pointer;
+}
+
+.option:hover {
+  background: #f8fafc;
+}
+
+.option input {
+  margin-right: 12px;
+}
+
+.assessment-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.previous-button,
+.next-button {
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: none;
+  font-weight: 600;
+}
+
+.previous-button {
+  background: #e4e7ec;
+}
+
+.next-button {
+  background: #2563eb;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+/* =========================
+   CAREER
+========================= */
+
+.recommendation-box {
+  background: #eff6ff;
+  border: 1px solid #dbeafe;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: left;
+  margin: 30px 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+.recommendation-box p {
+  margin: 0;
+  color: #2563eb;
+}
 
+.recommendation-box h2 {
+  color: #101828;
+}
+
+.recommendation-box span {
+  background: #d1fae5;
+  color: #047857;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.career-card {
+  text-align: left;
+}
+
+.career-card > h1,
+.career-card > .trophy {
+  text-align: center;
+}
+
+.career-card li {
+  margin: 12px 0;
+  color: #475467;
+}
+
+
+/* =========================
+   DOMAIN
+========================= */
+
+.domain-card {
+  text-align: left;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.skills span {
+  background: #eff6ff;
+  color: #2563eb;
+  padding: 8px 14px;
+  border-radius: 20px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1000px) {
+
+  .journey-cards {
+    grid-template-columns: repeat(2, 1fr);
   }
+
+  .field-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .navbar {
+    padding: 0 20px;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .journey-cards,
+  .field-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .journey-section h1,
+  .fields-section h1 {
+    font-size: 28px;
+  }
+
+  .assessment-card,
+  .scenario-card,
+  .career-card,
+  .domain-card {
+    width: 100%;
+    padding: 25px;
+  }
+
 }
